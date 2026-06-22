@@ -14,7 +14,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+MIN_ROWS=11
+MIN_COLS=48
+
+is_too_small() {
+	[ "$(tput lines)" -lt "$MIN_ROWS" ] || [ "$(tput cols)" -lt "$MIN_COLS" ]
+}
+
+fallback() {
+	kill "$PID" 2>/dev/null
+	exec "$(dirname "$0")/speedometer"
+}
+
 command -v bmon >/dev/null 2>&1 || exit 1
 
-trap "pkill -f -9 lib/hollywood/ >/dev/null 2>&1; exit" INT
-bmon --show-all
+is_too_small && exec "$(dirname "$0")/speedometer"
+
+trap 'is_too_small && fallback' WINCH
+trap 'kill "$PID" 2>/dev/null; exit' INT TERM
+
+bmon --show-all &
+PID=$!
+wait "$PID"
