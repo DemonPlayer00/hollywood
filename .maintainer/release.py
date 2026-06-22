@@ -41,7 +41,7 @@ from pathlib import Path
 HOLLYWOOD_SRC = Path(__file__).resolve().parent.parent
 
 # Launchpad PPA target — change if Hollywood gets its own PPA.
-PPA_TARGET = "ppa:kirkland/ppa"
+PPA_TARGET = "ppa:hollywood/ppa"
 
 # Salsa remote name — add with:
 #   git remote add salsa git@salsa.debian.org:games-team/hollywood.git
@@ -606,7 +606,7 @@ def sign_and_upload(v, identity):
             print(f"  dput {PPA_TARGET} {f.name}")
             run(["dput", PPA_TARGET, str(f)])
         print(f"  ✓ PPA uploads done.")
-        print(f"    Monitor: https://launchpad.net/~kirkland/+archive/ubuntu/ppa")
+        print(f"    Monitor: https://launchpad.net/~hollywood/+archive/ubuntu/ppa")
 
     print("\n── Step 3: Debian unstable  (mentors.debian.net)")
     deb_changes = sorted((outdir / "debian").glob("*_source.changes"))
