@@ -92,7 +92,7 @@ Hollywood includes 20 visual widgets that are randomly selected and arranged:
 Some widgets display real system information (processes, logs, network stats, file system details) that could be sensitive.  For demonstrations or presentations, consider running in a container:
 
 ```bash
-docker run -it --rm dustinkirkland/hollywood
+docker run -it --rm cgr.dev/chainguard/hollywood
 ```
 
 ## Contributing

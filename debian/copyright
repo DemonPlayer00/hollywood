@@ -1,10 +1,14 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: hollywood
 Upstream-Contact: Dustin Kirkland <dustin.kirkland@gmail.com>
-Source: https://launchpad.net/hollywood
+Source: https://github.com/dustinkirkland/hollywood
 
 Files: *
-Copyright: 2014 Dustin Kirkland <dustin.kirkland@gmail.com>
+Copyright: 2014-2026 Dustin Kirkland <dustin.kirkland@gmail.com>
+License: Apache-2.0
+
+Files: debian/*
+Copyright: 2014-2026 Dustin Kirkland <dustin.kirkland@gmail.com>
 License: Apache-2.0
 
 License: Apache-2.0
